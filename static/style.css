@@ -1,0 +1,82 @@
+/* ── Reset ── */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Page background ── */
+body {
+    min-height: 100vh;                        /* fills the full screen height */
+    display: flex;                            /* flexbox centers the card */
+    align-items: center;                      /* vertically center */
+    justify-content: center;                  /* horizontally center */
+    background: #F4F4F0;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Card box ── */
+.card {
+    background: #FFFFFF;
+    border: 1px solid #E5E4E2;
+    border-radius: 16px;
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 420px;                         /* never wider than 420px */
+    text-align: center;
+}
+
+/* ── Heading ── */
+h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1A1A2E;
+    margin-bottom: 24px;
+}
+
+/* ── Form layout: stack input above button ── */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;                                /* space between input and button */
+}
+
+/* ── Input field ── */
+input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #E5E4E2;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #1A1A2E;
+    background: #F9F9F7;
+    outline: none;
+    transition: border-color 0.15s;           /* smooth color change on focus */
+}
+
+/* when the user clicks the input, highlight it */
+input[type="text"]:focus {
+    border-color: #6C63FF;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+/* ── Button ── */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #6C63FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+button:hover {
+    opacity: 0.88;
+}
