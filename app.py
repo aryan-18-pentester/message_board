@@ -21,6 +21,9 @@ class Messages(db.Model):
     # example: done = db.Column(db.Boolean, default=False)
 
 
+
+with app.app_context():
+	db.create_all()
 # ── Routes ─────────────────────────────────────────────────────────────────────
 
 # Main page -- shows the form and lists items from the database
@@ -30,7 +33,7 @@ def index():
         # your logic goes here when form is submitted
         # example to read what the user typed:
         user_input = request.form['entry']
-       
+        db.session.commit()
 
     # your logic to fetch from database goes here
     # example: items = Item.query.all()
