@@ -13,8 +13,8 @@ db = SQLAlchemy(app)
 # Add your columns here
 class Messages(db.Model):
     id         = db.Column(db.Integer, primary_key=True)
-    name       = db.Column(db.String(200), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    messages       = db.Column(db.String(200), nullable=False)
+    #created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     # add more columns below this line
     # example: description = db.Column(db.String(500))
