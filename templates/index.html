@@ -10,7 +10,7 @@
 
     <div class="card">
         <h1>What's on your mind?</h1>
-        <form method="POST">
+        <form method="POST" action={{url_for('index')}} >
             <input type="text" name="entry" placeholder="Type something..." required autofocus>
             <button type="submit">Submit</button>
         </form>

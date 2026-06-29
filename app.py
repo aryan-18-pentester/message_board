@@ -5,13 +5,13 @@ from datetime import datetime
 # ── App setup ──────────────────────────────────────────────────────────────────
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key-here'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///messages.db'
 db = SQLAlchemy(app)
 
 
 # ── Model (your database table) ────────────────────────────────────────────────
 # Add your columns here
-class Item(db.Model):
+class Messages(db.Model):
     id         = db.Column(db.Integer, primary_key=True)
     name       = db.Column(db.String(200), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -29,14 +29,14 @@ def index():
     if request.method == 'POST':
         # your logic goes here when form is submitted
         # example to read what the user typed:
-        # user_input = request.form['entry']
-        pass
+        user_input = request.form['entry']
+       
 
     # your logic to fetch from database goes here
     # example: items = Item.query.all()
-    items = []
+  # items = []
 
-    return render_template('index.html', items=items)
+    return render_template('index.html')
 
 
 # Add more routes below this line
