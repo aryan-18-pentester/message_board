@@ -13,12 +13,9 @@ db = SQLAlchemy(app)
 # Add your columns here
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    got_messages = db.Column(db.String(200), nullable=False)
-    #created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    content = db.Column(db.String(200), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # add more columns below this line
-    # example: description = db.Column(db.String(500))
-    # example: done = db.Column(db.Boolean, default=False)
 
 
 
@@ -32,25 +29,15 @@ def index():
     if request.method == 'POST':
         # your logic goes here when form is submitted
         # example to read what the user typed:
-        input_gotmessage = request.form.get('entry')
-        if input_gotmessage:
-
-            input_messages = Message(got_messages=input_gotmessage)
-            db.session.add(input_messages)
+        input_message = request.form.get('entry') #getting input from the index html 
+        if input_message:
+            #using the class and inside var's to save message and push to the database.
+            messages = Message(content=input_message)
+            db.session.add(messages)
             db.session.commit()
 
-    # your logic to fetch from database goes here
-    # example: items = Item.query.all()
-  # items = []
 
     return render_template('index.html')
-
-
-# Add more routes below this line
-# example:
-# @app.route('/delete/<int:item_id>')
-# def delete(item_id):
-#     pass
 
 
 # ── Run ────────────────────────────────────────────────────────────────────────
