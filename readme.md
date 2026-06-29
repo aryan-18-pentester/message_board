@@ -1,1 +1,1 @@
-Making a message_board
+A Simple message board using Flask Framework
