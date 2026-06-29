@@ -32,7 +32,8 @@ def index():
     if request.method == 'POST':
         # your logic goes here when form is submitted
         # example to read what the user typed:
-        user_input = request.form['entry']
+        messages = request.form['entry']
+	db.seession.add(messages)
         db.session.commit()
 
     # your logic to fetch from database goes here
