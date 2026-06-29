@@ -11,9 +11,9 @@ db = SQLAlchemy(app)
 
 # ── Model (your database table) ────────────────────────────────────────────────
 # Add your columns here
-class Messages(db.Model):
-    id         = db.Column(db.Integer, primary_key=True)
-    messages       = db.Column(db.String(200), nullable=False)
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    got_messages = db.Column(db.String(200), nullable=False)
     #created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     # add more columns below this line
@@ -32,9 +32,12 @@ def index():
     if request.method == 'POST':
         # your logic goes here when form is submitted
         # example to read what the user typed:
-        messages = request.form['entry']
-        db.session.add(messages)
-        db.session.commit()
+        input_gotmessage = request.form.get('entry')
+        if input_gotmessage:
+
+            input_messages = Message(got_messages=input_gotmessage)
+            db.session.add(input_messages)
+            db.session.commit()
 
     # your logic to fetch from database goes here
     # example: items = Item.query.all()
