@@ -33,8 +33,8 @@ def index():
         # your logic goes here when form is submitted
         # example to read what the user typed:
         messages = request.form['entry']
-    db.session.add(messages)
-    db.session.commit()
+        db.session.add(messages)
+        db.session.commit()
 
     # your logic to fetch from database goes here
     # example: items = Item.query.all()
